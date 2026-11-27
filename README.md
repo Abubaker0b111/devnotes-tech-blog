@@ -7,7 +7,7 @@
 
 | Member | Roll number |
 | --- | --- |
-| Muhammad Abubaker | 24I-2024 |
+| Abu Bakr | 24I-2024 |
 | Muhammad Saim | 24I-2064 |
 | Muhammad Ali | 24I-2089 |
 
@@ -17,10 +17,8 @@ DevNotes is a frontend-only tech blog built with Next.js 16, React 19, TypeScrip
 
 ## How to run
 
-```bash
 npm install
 npm run dev
-```
 
 Open http://localhost:3000. A production build can be made with `npm run build`.
 
@@ -37,12 +35,10 @@ Open http://localhost:3000. A production build can be made with `npm run build`.
 
 ## Project structure
 
-```text
 app/            routes, layout.tsx, loading.tsx, not-found.tsx
 components/     reusable components
 data/           mock data and types (posts.ts, comments.ts)
 public/images/  post cover images
-```
 
 **Client Components:** `PostExplorer` (search, filter and sort state), `CommentSection` (comment list and form state), `ContactForm` (form fields, validation and success state). All pages are Server Components.
 
@@ -50,7 +46,7 @@ public/images/  post cover images
 
 | Member | Pages and components |
 | --- | --- |
-| Muhammad Abubaker | `layout.tsx`, Home, About, `not-found.tsx`, Navbar, Footer, Button, PageHeader |
+| Abu Bakr | `layout.tsx`, Home, About, `not-found.tsx`, Navbar, Footer, Button, PageHeader |
 | Muhammad Saim | Posts listing, Post detail `[id]`, `loading.tsx`, PostCard, TagBadge, SearchBar, SortSelect, PostExplorer, `data/posts.ts` |
 | Muhammad Ali | Contact page, ContactForm, CommentSection, CommentItem, `data/comments.ts` |
 
@@ -58,7 +54,6 @@ public/images/  post cover images
 
 - **Repository:** (add link)
 - **Video:** (add link)
-- **Live demo (Vercel, bonus):** (add link)
 
 ## AI tools used
 

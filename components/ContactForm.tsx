@@ -30,6 +30,12 @@ export default function ContactForm({ subjects }: ContactFormProps) {
 
   function handleChange(field: keyof FormData, value: string) {
     setForm({ ...form, [field]: value });
+    setErrors({ ...errors, [field]: undefined });
+  }
+
+  function inputClass(hasError: boolean): string {
+    const border = hasError ? "border-red-500" : "border-slate-300";
+    return `w-full rounded-lg border bg-white px-3 py-2 text-sm ${border}`;
   }
 
   function validate(): FormErrors {
@@ -87,7 +93,7 @@ export default function ContactForm({ subjects }: ContactFormProps) {
           type="text"
           value={form.name}
           onChange={(e) => handleChange("name", e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          className={inputClass(!!errors.name)}
         />
         {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
       </div>
@@ -101,7 +107,7 @@ export default function ContactForm({ subjects }: ContactFormProps) {
           type="email"
           value={form.email}
           onChange={(e) => handleChange("email", e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          className={inputClass(!!errors.email)}
         />
         {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
       </div>
@@ -114,7 +120,7 @@ export default function ContactForm({ subjects }: ContactFormProps) {
           id="contact-subject"
           value={form.subject}
           onChange={(e) => handleChange("subject", e.target.value)}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+          className={inputClass(!!errors.subject)}
         >
           <option value="">Select a subject</option>
           {subjects.map((subject) => (
@@ -135,7 +141,7 @@ export default function ContactForm({ subjects }: ContactFormProps) {
           rows={5}
           value={form.message}
           onChange={(e) => handleChange("message", e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          className={inputClass(!!errors.message)}
         />
         {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
       </div>

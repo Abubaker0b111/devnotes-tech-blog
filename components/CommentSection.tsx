@@ -90,8 +90,11 @@ export default function CommentSection({ postId, initialComments }: CommentSecti
             id="name"
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+            onChange={(e) => {
+              setName(e.target.value);
+              setErrors({ ...errors, name: undefined });
+            }}
+            className={`w-full rounded-lg border bg-white px-3 py-2 text-sm ${errors.name ? "border-red-500" : "border-slate-300"}`}
           />
           {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
         </div>
@@ -104,9 +107,14 @@ export default function CommentSection({ postId, initialComments }: CommentSecti
             id="text"
             rows={4}
             value={text}
-            onChange={(e) => setText(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm"
+            maxLength={300}
+            onChange={(e) => {
+              setText(e.target.value);
+              setErrors({ ...errors, text: undefined });
+            }}
+            className={`w-full rounded-lg border bg-white px-3 py-2 text-sm ${errors.text ? "border-red-500" : "border-slate-300"}`}
           />
+          <p className="mt-1 text-right text-xs text-slate-500">{text.length}/300</p>
           {errors.text && <p className="mt-1 text-sm text-red-600">{errors.text}</p>}
         </div>
 
